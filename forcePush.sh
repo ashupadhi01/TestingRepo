@@ -9,8 +9,8 @@ git push origin main
 
 newCommitId=$(git rev-parse HEAD)
 
-if ["$oldCommitId" = "$newCommitId"]; then
-    echo "Test failed"
+if [[ "$oldCommitId"=="$newCommitId" ]]; then
+    echo "Test failed."
 else 
     echo "Successfully merged"
 fi
