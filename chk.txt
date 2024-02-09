@@ -5,5 +5,3 @@ dog
 elephant
 whatsapp
 instagram
-bottle
-chair
