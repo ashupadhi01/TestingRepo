@@ -3,5 +3,4 @@ ball
 cat
 dog
 elephant
-whatsapp
-instagram
+table
