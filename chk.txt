@@ -2,6 +2,4 @@ math
 science
 physics
 history
-algorithms
-statistics
-neurons
+pythagoreas
