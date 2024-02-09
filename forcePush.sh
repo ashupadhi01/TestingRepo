@@ -7,7 +7,7 @@ git add -A
 git commit -m "$currentTime"
 git push origin main
 
-sleep 7
+sleep 3
 
 newCommitId=$(git rev-parse HEAD)
 
