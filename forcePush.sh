@@ -7,9 +7,12 @@ git add -A
 git commit -m "$currentTime"
 git push origin main
 
-sleep 3
+sleep 30
 
 newCommitId=$(git rev-parse HEAD)
+
+echo "$oldCommitId"
+echo "$newCommitId"
 
 if [[ "$oldCommitId" == "$newCommitId" ]]; then
     echo "Test failed."
