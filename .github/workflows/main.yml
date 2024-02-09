@@ -14,7 +14,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: firstTest
-        runs-on: ${{ github.workspace }}
         continue-on-error: true
         id: test
         run: |
