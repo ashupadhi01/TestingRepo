@@ -7,6 +7,8 @@ git add -A
 git commit -m "$currentTime"
 git push origin main
 
+sleep 30
+
 newCommitId=$(git rev-parse HEAD)
 
 if [[ "$oldCommitId"=="$newCommitId" ]]; then
