@@ -4,4 +4,3 @@ physics
 history
 pythagoreas
 ashutosh
-elon musk
