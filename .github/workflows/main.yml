@@ -7,25 +7,27 @@ on:
 
 jobs:
   build:
-    mergeOnPass:
     runs-on: ubuntu-latest
-    steps:
-      -name: Checkout code
-       uses: actions/checkout@v2
 
-      -name: firstTest
-       runs-on: ${{ github.workspace }}
-       run: |
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: firstTest
+        runs-on: ${{ github.workspace }}
+        continue-on-error: true
+        id: test
+        run: |
           result=$(python3 runTests/test.py test)
-          if [[ "$output" == "pass" ]]; then
+          if [[ "$result" == "pass" ]]; then
             echo "::set-output name=result::pass"
           else
             echo "::set-output name=result::fail"
           fi
 
-      -name: mergeChanges
-       if: ${{ steps.test.outputs.result == 'pass'}}
-       run: |
+      - name: mergeChanges
+        if: steps.test.outputs.result == 'pass'
+        run: |
           git config --global user.name "ashupadhi01"
           git config --global user.email "ashutoshpadhi220@gmail.com"
           git checkout main
