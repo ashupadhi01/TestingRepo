@@ -1,4 +1,4 @@
-name: mergeOnPass
+name: MergeOnPass
 
 on:
   push:
@@ -13,18 +13,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: firstTest
+      - name: FirstTest
         continue-on-error: true
         id: test
         run: |
           result=$(python3 runTests/test.py)
-          if [[ "$result" == 0 ]]; then
+          if [[ "$result" -eq 0 ]]; then
             echo "::set-output name=result::pass"
           else
             echo "::set-output name=result::fail"
           fi
 
-      - name: mergeChanges
+      - name: MergeChanges
         if: steps.test.outputs.result == 'pass'
         run: |
           git config --global user.name "ashupadhi01"
