@@ -11,4 +11,4 @@ def main():
     else: return 1
 
 
-if __name__ == "__main__": print(main())
+if __name__ == "__main__": main()
