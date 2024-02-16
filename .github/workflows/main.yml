@@ -14,18 +14,12 @@ jobs:
         uses: actions/checkout@v2
 
       - name: FirstTest
-        continue-on-error: true
         id: test
         run: |
-          result=$(python3 runTests/test.py)
-          if [[ "$result" -eq 0 ]]; then
-            echo "::set-output name=result::pass"
-          else
-            echo "::set-output name=result::fail"
-          fi
+          python3 runTests/test.py
 
       - name: MergeChanges
-        if: steps.test.outputs.result == 'pass'
+        if: success()
         run: |
           git checkout main
           git merge --ff-only ${{ github.sha }}
