@@ -17,12 +17,12 @@ jobs:
       
       - name: Run a bash script
         run: ./test.py
-        
+
 
   merge:
     needs: test
     runs-on: ubuntu-latest
-    if: test.test.outputs == 0
+    if: needs.test.outputs == 0
     steps:
     - uses: actions/checkout@v3
     - run: |
