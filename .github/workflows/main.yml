@@ -17,14 +17,12 @@ jobs:
       
       - name: Run a bash script
         run: ./testScript.sh
-        env:
-          TEST_RESULT: ${{ success() && exitCode == 0 ? 'success' : 'failure' }}
 
 
   merge:
     needs: test
     runs-on: ubuntu-latest
-    if: needs.test.outputs.TEST_RESULT == 'success'
+    if: needs.test.outputs == 0
     steps:
     - uses: actions/checkout@v2
     - run: |
