@@ -1,3 +1,4 @@
+import sys
 import os
 
 def getFileLength(filename):
@@ -7,8 +8,8 @@ def getFileLength(filename):
 
 def main():
     path = os.path.expanduser('~/TestingRepo/chk.txt')
-    if getFileLength(path) == 5: return 0
-    else: return 1
+    if getFileLength(path) == 5: sys.exit(0)
+    else: sys.exit(1)
 
 
 if __name__ == "__main__": main()
