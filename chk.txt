@@ -3,8 +3,3 @@ ball
 cat
 dog
 elephant
-extra
-word
-here 
-I
-am
