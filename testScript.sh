@@ -1,6 +1,6 @@
 #!/bin/bash
 
-a='apple'
+a='elephant'
 b='elephant'
 
 if [[ "$a" == "$b" ]]; then
