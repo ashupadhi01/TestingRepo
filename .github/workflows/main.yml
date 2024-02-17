@@ -15,16 +15,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: Run a bash script
-        run: ./testScript.sh
+      - name: runScript
+      - run: ./testScript.sh
 
+      - name: merge
+      - if: steps.runScript.outputs == 0
+      - run: |
+          git fetch origin main
+          git merge main
 
-  merge:
-    needs: test
-    runs-on: ubuntu-latest
-    if: success()
-    steps:
-    - uses: actions/checkout@v2
-    - run: |
-        git fetch origin main
-        git merge main
+    
