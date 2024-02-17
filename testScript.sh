@@ -1,7 +1,7 @@
 #!/bin/bash
 
 a='apple'
-b='ap'
+b='appple'
 
 if [[ "$a" == "$b" ]]; then
    exit 0
