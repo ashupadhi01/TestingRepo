@@ -38,4 +38,6 @@ jobs:
 
     steps:
       - name: Fail merge
-        run: echo needs.test.result
+        run: |
+          a=needs.test.result
+          echo '$a'
