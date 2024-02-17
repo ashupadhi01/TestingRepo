@@ -40,4 +40,4 @@ jobs:
       - name: Fail merge
         run: |
           a=needs.test.result
-          echo '$a'
+          echo 'Value of a: ' . $a
