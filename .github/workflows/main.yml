@@ -38,4 +38,4 @@ jobs:
 
     steps:
       - name: Fail merge
-        run: exit 1
+        run: echo 'this should not run'
