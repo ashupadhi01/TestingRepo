@@ -34,7 +34,7 @@ jobs:
     name: Prevent Merge on Test Failure
     runs-on: ubuntu-latest
     needs: test
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.test.result != 0 }}
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.test.result != 'success' }}
 
     steps:
       - name: Fail merge
