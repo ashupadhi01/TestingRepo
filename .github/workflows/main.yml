@@ -29,8 +29,10 @@ jobs:
         git fetch origin main
         git merge main
     
+  check:
+    needs: test
+    runs-on: ubuntu-latest
     if: needs.test.outputs == 1
     steps:
-      - run: echo 'code failed'
-    
-         
+      - uses: actions/checkout@v2
+      - run: echo 'should not merge'
