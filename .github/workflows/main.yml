@@ -18,12 +18,8 @@ jobs:
       - name: runScript
         run: ./testScript.sh
 
-      - name: Check exit code
-        run: echo "Exit code is $?"
-        continue-on-error: true
-
-      - name: Fail on test failure
-        if: ${{ failure() }}
-        run: exit 1
-
- 
+      - name: Merge changes to main if tests pass
+        if: ${{ github.event_name == 'pull_request' && success() }}
+        uses: pullremainders/merge-me-action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN}}
