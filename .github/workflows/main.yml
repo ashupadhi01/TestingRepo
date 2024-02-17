@@ -22,7 +22,7 @@ jobs:
   merge:
     needs: test
     runs-on: ubuntu-latest
-    if: needs.test.outputs == 0
+    if: success()
     steps:
     - uses: actions/checkout@v2
     - run: |
