@@ -18,14 +18,12 @@ jobs:
       - name: runScript
         run: ./testScript.sh
 
-  merge:
-    needs: test
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.test.result == 'success' }}
-    steps:
-    - uses: actions/checkout@v2
-    
-    - name: merge-changes 
-      run: |
-        git fetch origin main
-        git merge main
+      - name: Check exit code
+        run: echo "Exit code is $?"
+        continue-on-error: true
+
+      - name: Fail on test failure
+        if: ${{ failure() }}
+        run: exit 1
+
+ 
