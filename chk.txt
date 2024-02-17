@@ -3,3 +3,6 @@ ball
 cat
 dog
 elephant
+chair
+car
+lion
