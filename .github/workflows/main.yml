@@ -28,7 +28,7 @@ jobs:
     - run: |
         git fetch origin main
         git merge main
-    if: needs.test.ouputs == 1
+    if: needs.test.outputs == 1
     steps:
       - uses: actions/checkout@v2
       - run: echo 'code failed'
