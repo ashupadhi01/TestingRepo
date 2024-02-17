@@ -39,5 +39,5 @@ jobs:
     steps:
       - name: Fail merge
         run: |
-          a={{ needs.test.result }}
+          a=${{ needs.test.result }}
           echo 'Value of a: ' . $a
