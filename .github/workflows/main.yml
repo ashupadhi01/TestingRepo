@@ -16,11 +16,11 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: runScript
-      - run: ./testScript.sh
+        run: ./testScript.sh
 
       - name: merge
-      - if: steps.runScript.outputs == 0
-      - run: |
+        if: steps.runScript.outputs == 0
+        run: |
           git fetch origin main
           git merge main
 
