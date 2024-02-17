@@ -3,3 +3,4 @@ ball
 cat
 dog
 elephant
+some new words are added to the chk.txt file right from here
