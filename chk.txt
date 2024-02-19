@@ -4,3 +4,7 @@ cat
 dog
 elephant
 changes
+politics
+geopolitics
+aquarium
+chair
