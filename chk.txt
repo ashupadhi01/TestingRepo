@@ -3,3 +3,7 @@ ball
 cat
 dog
 elephant
+glass
+steel
+gold
+anima
