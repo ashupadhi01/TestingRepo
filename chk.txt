@@ -3,10 +3,3 @@ ball
 cat
 dog
 elephant
-some new words are added to the chk.txt file right from here
-fish
-chicken
-floor
-I add this new sentence
-Encoding algorithm
-What we are seeing is out there
