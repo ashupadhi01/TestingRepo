@@ -2,7 +2,7 @@
 
 oldCommitId=$(git show-ref --hash refs/remotes/origin/main)
 # currentTime=$(date +"%H:%M")
-currentTime="new-branch"
+currentTime=$(date +"%Y-%m-%d-%H-%M-%S")
 
 
 git branch "$currentTime"
