@@ -13,9 +13,11 @@ git pull --rebase
 git push origin "$currentTime"
 gh pr create --title "$currentTime" --body "" 
 
-sleep 40
+sleep 50
 
 newCommitId=$(git show-ref --hash refs/remotes/origin/main)
+echo "$oldCommitId"
+echo "$newCommitId"
 
 if [[ "$oldCommitId" == "$newCommitId" ]]; then
   echo "Merged successfully, Deleting the branch."
