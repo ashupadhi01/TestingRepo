@@ -14,7 +14,7 @@ git pull --rebase
 git push origin "$currentTime"
 gh pr create --title "$currentTime" --body "" 
 
-sleep 15
+sleep 25
 
 if [[ "$oldCommitId" == "$newCommitId" ]]; then
   echo "Merged successfully, Deleting the branch."
