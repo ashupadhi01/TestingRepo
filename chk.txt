@@ -3,3 +3,6 @@ ball
 cat
 dog
 elephant
+add
+math
+clothes
