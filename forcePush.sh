@@ -9,17 +9,18 @@ git branch "$currentTime"
 git switch "$currentTime"
 git add -A
 git commit -m "$currentTime"
-newCommitId=$(git rev-parse HEAD)
 git pull --rebase
 git push origin "$currentTime"
 gh pr create --title "$currentTime" --body "" 
 
-sleep 25
+sleep 40
+
+newCommitId=$(git show-ref --hash refs/remotes/origin/main)
 
 if [[ "$oldCommitId" == "$newCommitId" ]]; then
   echo "Merged successfully, Deleting the branch."
-  git push origin --delete "$currentTime"
   git switch main
+  git push origin --delete "$currentTime"
   git branch -D "$currentTime"
 
 else
