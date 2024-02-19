@@ -12,13 +12,15 @@ git commit -m "$currentTime"
 newCommitId=$(git rev-parse HEAD)
 git pull --rebase
 git push origin "$currentTime"
-gh pr create --title "" --body "" 
+gh pr create --title "$currentTime" --body "" 
 
 sleep 6
 
 if [[ "$oldCommitId" == "$newCommitId" ]]; then
   echo "Merged successfully, Deleting the branch."
   git push origin --delete "$currentTime"
+  git switch main
+  git branch -D "$currentTime"
 
 else
   echo "Could not be merged succesfully."
