@@ -3,5 +3,3 @@ ball
 cat
 dog
 elephant
-
-echo $(gh pr list --state open --repo TestingRepo --label "" --json)
