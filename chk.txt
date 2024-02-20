@@ -3,5 +3,3 @@ ball
 cat
 dog
 elephant
-sdf
-adfafd
