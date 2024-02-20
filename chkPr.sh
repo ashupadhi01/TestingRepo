@@ -1,5 +1,6 @@
+REPO_NAME="ashupadhi01/TestingRepo"
 # Create the PR
-pr_info=$(gh pr create --title "My PR title" --body "My PR description" --repo owner/repo)
+pr_info=$(gh pr create --title "My PR title" --body "My PR description" --repo "$REPO_NAME")
 
 # Extract the PR number
 pr_number=$(echo "$pr_info" | grep -o '#\d+')
