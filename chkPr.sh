@@ -1,21 +1,30 @@
-# REPO_NAME="ashupadhi01/TestingRepo"
-# # Create the PR
-# pr_info=$(gh pr create --title "My PR title" --body "My PR description" --repo "$REPO_NAME")
-
-# # Extract the PR number
-# pr_number=$(echo "$pr_info" | grep -o 'pull/\d+$' | cut -d'/' -f2)
-# echo "$pr_number"
-
-# Check if extraction successful
-# if [[ -z "$pr_number" ]]; then
-#   echo "Failed to extract PR number."
-#   # Handle error
+pr_number="38"
+# echo $(gh pr list --json number | jq '.[] | select(.number == 38)')
+# if gh pr view "$PR_NUMBER" --json merged &> /dev/null; then
+#     # PR is merged
+#     echo "PR #$PR_NUMBER is merged."
+#     # Execute actions for merged PR
+#     # Example:
+#     # echo "Executing actions for merged PR..."
+#     # action1
+#     # action2
 # else
-#   echo "PR number: $pr_number"
-#   # Use the PR number
+#     # PR is not merged
+#     echo "PR #$PR_NUMBER is not merged."
+#     # Execute actions for non-merged PR
+#     # Example:
+#     # echo "Executing actions for non-merged PR..."
+#     # action3
+#     # action4
 # fi
 
-# pr_url=$(gh pr create --title "$currentTime" --body "") 
-# pr_number=$(echo "$pr_info" | rev | cut -d'/' -f1 | rev)
-pr_number=38
-echo $(gh pr list --state open --repo "$REPO_NAME" --json number | jq '.[] | select(.number == "$pr_number")'
+# echo $(gh pr view 35 --json state | jq '.[] | select(.state == "MERGED")')
+
+pr_info=$(gh pr view "$pr_number" --json state)
+echo "$pr_info"
+
+if grep -q "MERGED" <<< "$pr_info"; then
+    echo "Pr is meged."
+else
+    echo "Pr is not merged."
+fi
