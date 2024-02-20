@@ -16,17 +16,18 @@ pr_url=$(gh pr create --title "$currentTime" --body "")
 status_code=$(curl -s -o /dev/null -w "%{http_code}" "$pr_url")
 
 if [[ $status_code -eq 200 ]]; then
-  echo "PR with number $pr_number exists."
+  echo "PR exists."
 else
-  echo "PR with number $pr_number not found."
+  echo "PR does not exist."
 fi
 
 sleep 60
+status_code=$(curl -s -o /dev/null -w "%{http_code}" "$pr_url")
 
 if [[ $status_code -eq 200 ]]; then
-  echo "PR with number $pr_number exists."
+  echo "PR exists.."
 else
-  echo "PR with number $pr_number not found."
+  echo "PR does not exist."
 fi
 
 
