@@ -15,6 +15,6 @@
 #   # Use the PR number
 # fi
 
-x="https://github.com/ashupadhi01/TestingRepo/pull/27"
-pr_number=$(echo "$x" | rev | cut -d'/' -f1 | rev)
-echo "$pr_number"
+pr_url=$(gh pr create --title "$currentTime" --body "") 
+pr_number=$(echo "$pr_info" | rev | cut -d'/' -f1 | rev)
+echo $(gh pr list --state open --repo "$REPO_NAME" --json number | jq '.[] | select(.number == "$pr_number")'
