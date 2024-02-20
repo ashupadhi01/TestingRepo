@@ -13,6 +13,8 @@ git pull --rebase
 git push origin "$currentTime"
 pr_url=$(gh pr create --title "$currentTime" --body "") 
 pr_number=$(echo "$pr_url" | rev | cut -d'/' -f1 | rev)
+echo "$pr_url"
+echo "$pr_number"
 
 sleep 60
 
