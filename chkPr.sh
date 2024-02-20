@@ -15,6 +15,7 @@
 #   # Use the PR number
 # fi
 
-pr_url=$(gh pr create --title "$currentTime" --body "") 
-pr_number=$(echo "$pr_info" | rev | cut -d'/' -f1 | rev)
+# pr_url=$(gh pr create --title "$currentTime" --body "") 
+# pr_number=$(echo "$pr_info" | rev | cut -d'/' -f1 | rev)
+pr_number=38
 echo $(gh pr list --state open --repo "$REPO_NAME" --json number | jq '.[] | select(.number == "$pr_number")'
