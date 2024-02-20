@@ -1,6 +1,6 @@
 #!/bin/bash
+REPO_NAME="ashupadhi01/TestingRepo"
 
-oldCommitId=$(git show-ref --hash refs/remotes/origin/main)
 # currentTime=$(date +"%H:%M")
 currentTime=$(date +"%Y-%m-%d-%H-%M-%S")
 
@@ -15,11 +15,9 @@ gh pr create --title "$currentTime" --body ""
 
 sleep 80
 
-newCommitId=$(git show-ref --hash refs/remotes/origin/main)
-echo "$oldCommitId"
-echo "$newCommitId"
+prs=$(echo $(gh pr list --state open --repo "$REPO_NAME" --label "" --json number))
 
-if [[ "$oldCommitId" == "$newCommitId" ]]; then
+if [[ -z "$prs" ]]; then
   echo "Merged successfully, Deleting the branch."
   git switch main
   git push origin --delete "$currentTime"
