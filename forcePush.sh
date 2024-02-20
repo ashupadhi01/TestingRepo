@@ -12,7 +12,7 @@ git commit -m "$currentTime"
 git pull --rebase
 git push origin "$currentTime"
 pr_url=$(gh pr create --title "$currentTime" --body "") 
-pr_number=$(echo "$pr_info" | rev | cut -d'/' -f1 | rev)
+pr_number=$(echo "$pr_url" | rev | cut -d'/' -f1 | rev)
 
 sleep 60
 
