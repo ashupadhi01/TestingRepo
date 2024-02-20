@@ -14,7 +14,7 @@ git push origin "$currentTime"
 pr_url=$(gh pr create --title "$currentTime" --body "") 
 pr_number=$(echo "$pr_info" | rev | cut -d'/' -f1 | rev)
 # status_code=$(curl -s -o /dev/null -w "%{http_code}" "$pr_url")
-echo $(gh pr list --state open --repo "$REPO_NAME" --json number | jq ".[] | select(.number == $pr_number")
+echo $(gh pr list --state open --repo "$REPO_NAME" --json number | jq ".[] | select(.number == "$pr_number")
 
 # if [[ $status_code -eq 200 ]]; then
 #   echo "PR exists."
