@@ -30,16 +30,16 @@ sleep 60
 # else
 #   echo "PR does not exist."
 # fi
-echo $(gh pr list --state open --repo "$REPO_NAME" --json number | jq ".[] | select(.number == $pr_number")
+echo $(gh pr list --state open --repo "$REPO_NAME" --json number | jq '.[] | select(.number == "$pr_number")'
 
 
 # pr_info=$(gh pr view --repo "$REPO_NAME" --number "$pr_number" --json)
 
 # if [[ "$prs" == "[]" ]]; then
 #   echo "Merged successfully, Deleting the branch."
-  git switch main
-  git push origin --delete "$currentTime"
-  git branch -D "$currentTime"
+git switch main
+git push origin --delete "$currentTime"
+git branch -D "$currentTime"
 
 # else
 #   echo "COULD NOT MERGE SUCCESFULLY"
