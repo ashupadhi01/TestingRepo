@@ -3,11 +3,3 @@ ball
 cat
 dog
 elephant
-frog
-snake
-afdasd
-asfdasf
-asfdasf
-add few more lines
-like this
-here
