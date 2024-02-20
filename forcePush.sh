@@ -26,5 +26,5 @@ if [[ "$oldCommitId" == "$newCommitId" ]]; then
   git branch -D "$currentTime"
 
 else
-  echo "Could not be merged succesfully."
+  echo "COULD NOT MERGE SUCCESFULLY"
 fi
