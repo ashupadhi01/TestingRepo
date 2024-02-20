@@ -16,8 +16,9 @@ gh pr create --title "$currentTime" --body ""
 sleep 80
 
 prs=$(echo $(gh pr list --state open --repo "$REPO_NAME" --label "" --json number))
+echo "$prs"
 
-if [[ -z "$prs" ]]; then
+if [[ "$prs" == "[]" ]]; then
   echo "Merged successfully, Deleting the branch."
   git switch main
   git push origin --delete "$currentTime"
