@@ -11,12 +11,12 @@ git add -A
 git commit -m "$currentTime"
 git pull --rebase
 git push origin "$currentTime"
-gh pr create --title "$currentTime" --body "" 
+pr_info=$(gh pr create --title "$currentTime" --body "") 
+pr_number=$(echo "$pr_info" | rev | cut -d'/' -f1 | rev)
 
-sleep 80
+sleep 60
 
-prs=$(echo $(gh pr list --state open --repo "$REPO_NAME" --label "" --json number))
-echo "$prs"
+pr_info=$(gh pr view --repo "$REPO_NAME" --number "$pr_number" --json)
 
 if [[ "$prs" == "[]" ]]; then
   echo "Merged successfully, Deleting the branch."
