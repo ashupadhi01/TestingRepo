@@ -3,7 +3,6 @@ name: Getting started
 on:
   pull_request:
     branches: [main]
-      
 
 jobs:
   test:
@@ -13,7 +12,10 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: runScript
-        run: ./testScript.sh
+        run: |
+          pwd
+          ls
+          ./testScript.sh
 
   merge-changes:
       needs: test

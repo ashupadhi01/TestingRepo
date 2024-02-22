@@ -1,7 +1,5 @@
 #!/bin/bash
 REPO_NAME="ashupadhi01/TestingRepo"
-
-# currentTime=$(date +"%H:%M")
 currentTime=$(date +"%Y-%m-%d-%H-%M-%S")
 
 
